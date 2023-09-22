@@ -10,8 +10,8 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
   <link rel="stylesheet" href="<?= base_url('assets/front/'); ?>scribbler-global.css">
   <link rel="stylesheet" href="<?= base_url('assets/front/'); ?>scribbler-doc.css">
-  <link rel="apple-touch-icon" href="<?= base_url('assets/img/logo.ico'); ?>" />
-  <link rel="author" href="humans.txt">
+  <link rel="shortcut icon" href="<?= base_url('assets/img/logo.ico'); ?>">
+  <link rel="author" href="Agus">
 </head>
 
 <body>
