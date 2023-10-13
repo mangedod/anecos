@@ -16,4 +16,12 @@ class Mrest extends CI_Model
             return $this->db->get_where('telah_masuk', ['id_telah_masuk' => $id])->result_array();
         }
     }
+    public function getDataBarang($id = null)
+    {
+        if ($id === null) {
+            return $this->db->get('migrasi_data')->result_array();
+        } else {
+            return $this->db->get_where('migrasi_data', ['id_migrasi' => $id])->result_array();
+        }
+    }
 }
