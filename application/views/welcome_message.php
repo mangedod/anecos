@@ -36,28 +36,19 @@
     <article class="doc__content">
       <section class="js-section">
         <h3 class="section__title">Get Started</h3>
-        <p>Learn how to configure settings for Anecos, such as your syntax highlighting preference and the default
-          saving folder location.</p>
-        <h3 class="section__title">Installation</h3>
+        <p>ANECOS adalah sebuah Rest API utama dari PT. Kantis Sehati Sukses untuk kebutuhan data baik internal maupun eksternal. ANECOS sendiri merupakan sebuah akronim dari Ansania Eco System.</p>
+        <h3 class="section__title">Base_url</h3>
         <div class="code__block code__block--notabs">
           <pre class="code code--block">
               <code>
-                $ Anecos  ——config
-                  {
-                    “encryption”: true, 
-                    “highlighting“: true,
-                    “prettyTable”: false,
-                    “font”: [“Helvetica”, “sans-serif”],
-                    “folder”: “~/Desktop“
-                  }
+                https://anecos.kantiss.com
               </code>
             </pre>
         </div>
       </section>
       <section class="js-section">
         <h3 class="section__title">Configuration</h3>
-        <p>Learn how to configure settings for Anecos, such as your syntax highlighting preference and the default
-          saving folder location.</p>
+        <p>Akses untuk mendapatkan sebuah value dari anecos dibatasi dengan API TOKEN yang harus Anda daftarkan.</p>
         <table id="customers">
           <tr>
             <th>Options</th>
@@ -65,18 +56,33 @@
             <th>Default</th>
           </tr>
           <tr>
-            <td>encryption</td>
-            <td>encrypt all notes before saving. If turned on, it requires password to open the file.</td>
-            <td>false</td>
-          </tr>
-          <tr>
-            <td>highlighting</td>
-            <td>Show syntax highlight on markdown text.</td>
+            <td>/stock</td>
+            <td>Menampilkan data stock seluruh item kerudung.</td>
             <td>true</td>
           </tr>
           <tr>
-            <td>prettyTable</td>
-            <td>Render table with Anecos’s pretty table style.</td>
+            <td>/warna</td>
+            <td>Menampilkan warna beserta code warnanya.</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>/finishing</td>
+            <td>Menampilkan finishing beserta codenya.</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>/item</td>
+            <td>Menampilkan item beserta codenya.</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>/kategori</td>
+            <td>Menampilkan kategori beserta codenya.</td>
+            <td>true</td>
+          </tr>
+          <tr>
+            <td>/sku</td>
+            <td>Menampilkan seluruh data item lengkap beserta code SKU dan barcode.</td>
             <td>true</td>
           </tr>
         </table>
@@ -116,7 +122,7 @@
     </article>
   </div>
 
-  <footer class="footer">Anecos is a free HTML template created exclusively for <a href="https://tympanus.net/codrops/" target="_blank" class="link link--light">Codrops</a>.</footer>
+  <footer class="footer">Ansania Eco System <?= date('Y'); ?>.</footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
