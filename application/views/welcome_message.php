@@ -41,7 +41,7 @@
         <div class="code__block code__block--notabs">
           <pre class="code code--block">
               <code>
-                https://anecos.kantiss.com
+                <?= base_url() ?><br>
               </code>
             </pre>
         </div>
