@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-
 use chriskacerguis\RestServer\RestController;
-
 class Stock extends RestController
 {
 	public function __construct()
@@ -13,9 +11,6 @@ class Stock extends RestController
 	}
 	public function index_get()
 	{
-		// $data = $this->db->get('telah_masuk')->result();
-		// $this->response($data, RestController::HTTP_OK);
-
 		$id = $this->get('id');
 		if ($id === null) {
 			$masuk = $this->row->getMasuk();
@@ -26,12 +21,51 @@ class Stock extends RestController
 			$this->response([
 				'status' => true,
 				'data' => $masuk
-			], RESTController::HTTP_OK);
+			], 200);
 		} else {
 			$this->response([
 				'status' => false,
 				'pesan' => "Data tidak ditemukan"
-			], RESTController::HTTP_NOT_FOUND);
+			], 404);
 		}
 	}
+  public function index_delete(){
+    $id = $this->delete('id');
+    if($id === null){
+      $this->response([
+				'status' => false,
+				'pesan' => 'ID wajib diisi'
+			], 500);
+    }else {
+      if($this->row->deleteMasuk($id)> 0){
+      $this->response([
+				'status' => true,
+				'id' => $id,
+        'pesan' => 'Berhasil dihapus'
+			], 204);
+      }else{
+        $this->response([
+				'status' => false,
+				'pesan' => 'ID tidak terdaftar'
+			], 400);
+      }
+    }
+  }
+  public function index_put(){
+    $id = $this->put('id');
+    $data = [
+      'stock_barang' => $this->put('stok')
+    ];
+    if($this->row->updateItem($data, $id) > 0){
+      $this->response([
+				'status' => true,
+				'pesan' => 'Berhasil diubah'
+			], 204);
+    }else{
+       $this->response([
+				'status' => false,
+				'pesan' => 'gagal ditambahkan'
+			], 400);
+    }
+  }
 }

@@ -34,4 +34,44 @@ class Sku extends RestController
 			], RESTController::HTTP_NOT_FOUND);
 		}
 	}
+  public function index_delete(){
+    $id = $this->delete('id');
+    if($id === null){
+      $this->response([
+				'status' => false,
+				'pesan' => 'ID wajib diisi'
+			], 500);
+    }else {
+      if($this->row->deleteDataBarang($id)> 0){
+      $this->response([
+				'status' => true,
+				'id' => $id,
+        'pesan' => 'Berhasil dihapus'
+			], 204);
+      }else{
+        $this->response([
+				'status' => false,
+				'pesan' => 'ID tidak terdaftar'
+			], 400);
+      }
+    }
+  }
+  // public function index_post(){
+  //   $data = [
+  //     'code_barang' => $this->post('code'),
+  //     'nama_barang' => $this->post('barang'),
+  //     'hexa' => 1
+  //   ];
+  //   if($this->row->tambahDataBarang($data) > 0){
+  //     $this->response([
+	// 			'status' => true,
+	// 			'pesan' => 'Berhasil ditambahkan'
+	// 		], RESTController::HTTP_CREATED);
+  //   }else{
+  //      $this->response([
+	// 			'status' => false,
+	// 			'pesan' => 'gagal ditambahkan'
+	// 		], 400);
+  //   }
+  // }
 }

@@ -13,9 +13,6 @@ class Kategori extends RestController
 	}
 	public function index_get()
 	{
-		// $data = $this->db->get('telah_masuk')->result();
-		// $this->response($data, RestController::HTTP_OK);
-
 		$id = $this->get('id');
 		if ($id === null) {
 			$masuk = $this->row->getKategori();
@@ -34,4 +31,44 @@ class Kategori extends RestController
 			], RESTController::HTTP_NOT_FOUND);
 		}
 	}
+  public function index_delete(){
+    $id = $this->delete('id');
+    if($id === null){
+      $this->response([
+				'status' => false,
+				'pesan' => 'ID wajib diisi'
+			], 500);
+    }else {
+      if($this->row->deleteKategori($id)> 0){
+      $this->response([
+				'status' => true,
+				'id' => $id,
+        'pesan' => 'Berhasil dihapus'
+			], 204);
+      }else{
+        $this->response([
+				'status' => false,
+				'pesan' => 'ID tidak terdaftar'
+			], 400);
+      }
+    }
+  }
+  public function index_post(){
+    $data = [
+      'kode_kate' => $this->post('code'),
+      'kategori' => $this->post('kategori'),
+      'act_kate' => 1
+    ];
+    if($this->row->tambahKategori($data) > 0){
+      $this->response([
+				'status' => true,
+				'pesan' => 'Berhasil ditambahkan'
+			], RESTController::HTTP_CREATED);
+    }else{
+       $this->response([
+				'status' => false,
+				'pesan' => 'gagal ditambahkan'
+			], 400);
+    }
+  }
 }
