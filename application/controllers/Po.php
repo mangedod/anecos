@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 use chriskacerguis\RestServer\RestController;
-class Stock extends RestController
+class Po extends RestController
 {
 	public function __construct()
 	{
@@ -13,14 +13,14 @@ class Stock extends RestController
 	{
 		$id = $this->get('id');
 		if ($id === null) {
-			$masuk = $this->row->getMasuk();
+			$po = $this->row->getPO();
 		} else {
-			$masuk = $this->row->getMasuk($id);
+			$po = $this->row->getPO($id);
 		}
-		if ($masuk) {
+		if ($po) {
 			$this->response([
 				'status' => true,
-				'data' => $masuk
+				'data' => $po
 			], 200);
 		} else {
 			$this->response([
@@ -37,7 +37,7 @@ class Stock extends RestController
 				'pesan' => 'ID wajib diisi'
 			], 500);
     }else {
-      if($this->row->deleteMasuk($id)> 0){
+      if($this->row->deletePO($id)> 0){
       $this->response([
 				'status' => true,
 				'id' => $id,
@@ -51,22 +51,28 @@ class Stock extends RestController
       }
     }
   }
-  public function index_put(){
-    $id = $this->put('id');
+  public function index_post(){
     $data = [
-      'code_barang' => $this->put('code'),
-      'stock_barang' => $this->put('stok'),
+        'id_outlet' => $this->post('id_outlet'),
+        'internal' => $this->post('internal'),
+        'kurir' => $this->post('kurir'),
+        'tanggal_po' => $this->post('tanggal'),
+        'no_sj' => $this->post('nomor'),
+        'no_po' => $this->post('no_pelanggan'),
+        'ket' => $this->post('ket'),
+        'status_po' => $this->post('status_po')
     ];
-    if($this->row->updateItem($data, $id) > 0){
-      $this->response([
-				'status' => true,
-				'pesan' => 'Berhasil diubah'
-			], 204);
+    if($this->row->tambahPO($data) > 0){
+        $this->response([
+            'status' => true,
+            'pesan' => 'Berhasil ditambahkan'
+        ], RESTController::HTTP_CREATED);
     }else{
-       $this->response([
-				'status' => false,
-				'pesan' => 'gagal ditambahkan'
-			], 400);
+        $this->response([
+            'status' => false,
+            'pesan' => 'Gagal ditambahkan. Terjadi kesalahan internal.'
+        ], RESTController::HTTP_INTERNAL_SERVER_ERROR);
     }
-  }
+}
+
 }

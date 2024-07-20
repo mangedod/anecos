@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 use chriskacerguis\RestServer\RestController;
-class Stock extends RestController
+class Keluar extends RestController
 {
 	public function __construct()
 	{
@@ -13,14 +13,14 @@ class Stock extends RestController
 	{
 		$id = $this->get('id');
 		if ($id === null) {
-			$masuk = $this->row->getMasuk();
+			$keluar = $this->row->getKeluar();
 		} else {
-			$masuk = $this->row->getMasuk($id);
+			$keluar = $this->row->getKeluar($id);
 		}
-		if ($masuk) {
+		if ($keluar) {
 			$this->response([
 				'status' => true,
-				'data' => $masuk
+				'data' => $keluar
 			], 200);
 		} else {
 			$this->response([
@@ -37,7 +37,7 @@ class Stock extends RestController
 				'pesan' => 'ID wajib diisi'
 			], 500);
     }else {
-      if($this->row->deleteMasuk($id)> 0){
+      if($this->row->deleteKeluar($id)> 0){
       $this->response([
 				'status' => true,
 				'id' => $id,
@@ -51,11 +51,37 @@ class Stock extends RestController
       }
     }
   }
+  public function index_post(){
+    $data = [
+      'id_outlet' => $this->post('id_outlet'),
+      'id_po' => $this->post('id_po'),
+      'internal' => $this->post('internal'),
+      'nomor' => $this->post('nomor'),
+      'tanggal' => $this->post('tanggal'),
+      'no_pelanggan' => $this->post('no_pelanggan'),
+      'code_barang' => $this->post('code_barang'),
+      'nama_barang' => $this->post('nama_barang'),
+      'stock_barang' => $this->post('stock_barang'),
+      'satuan' => $this->post('satuan'),
+      'ket' => $this->post('ket'),
+      'status_keluar' => $this->post('status_keluar')
+    ];
+    if($this->row->tambahKeluar($data) > 0){
+      $this->response([
+				'status' => true,
+        'pesan' => 'Berhasil ditambahkan'
+			], RESTController::HTTP_CREATED);
+    }else{
+       $this->response([
+				'status' => false,
+				'pesan' => 'gagal ditambahkan'
+			], 400);
+    }
+  }
   public function index_put(){
     $id = $this->put('id');
     $data = [
-      'code_barang' => $this->put('code'),
-      'stock_barang' => $this->put('stok'),
+      'stock_barang' => $this->put('stok')
     ];
     if($this->row->updateItem($data, $id) > 0){
       $this->response([

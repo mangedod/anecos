@@ -20,12 +20,51 @@ class Mrest extends CI_Model
     $this->db->delete('telah_masuk', ['id_telah_masuk' => $id]);
     return $this->db->affected_rows();
   }
-  public function updateItem($data, $id){
-    $this->db->update('telah_masuk', $data, ['id_telah_masuk' => $id]);
-    return $this->db->affected_rows();
-  }
 
   // ==================== BATAS BARANG MASUK ==================== //
+
+  public function getKeluar($id = null)
+  {
+    if ($id === null) {
+      return $this->db->get('telah_keluar')->result_array();
+    } else {
+      return $this->db->get_where('telah_keluar', ['id_telah_keluar' => $id])->result_array();
+    }
+  }
+  public function deleteKeluar($id){
+    $this->db->delete('telah_keluar', ['id_telah_keluar' => $id]);
+    return $this->db->affected_rows();
+  }
+  public function updateKeluar($data, $id){
+    $this->db->update('telah_keluar', $data, ['id_telah_keluar' => $id]);
+    return $this->db->affected_rows();
+  }
+  public function tambahKeluar($data){
+    $this->db->insert('telah_keluar', $data);
+    return $this->db->affected_rows();
+  }
+  // ==================== BATAS BARANG KELUAR ==================== //
+  public function getPO($id = null)
+  {
+    if ($id === null) {
+      return $this->db->get('po')->result_array();
+    } else {
+      return $this->db->get_where('po', ['id_po' => $id])->result_array();
+    }
+  }
+  public function deletePO($id){
+    $this->db->delete('po', ['id_po' => $id]);
+    return $this->db->affected_rows();
+  }
+  public function updatePO($data, $id){
+    $this->db->update('po', $data, ['id_po' => $id]);
+    return $this->db->affected_rows();
+  }
+  public function tambahPO($data){
+    $this->db->insert('po', $data);
+    return $this->db->affected_rows();
+  }
+  // ==================== BATAS BARANG PO ==================== //
 
   public function getDataBarang($id = null)
   {
@@ -78,6 +117,11 @@ class Mrest extends CI_Model
   }  
   public function tambahItem($data){
     $this->db->insert('inv_item', $data);
+    return $this->db->affected_rows();
+  }
+  
+  public function updateItem($data, $id){
+    $this->db->update('telah_masuk', $data, ['id_telah_masuk' => $id]);
     return $this->db->affected_rows();
   }
   // ==================== BATAS ITEM ==================== //
