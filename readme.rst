@@ -20,8 +20,7 @@ Untuk installasi silahkan teman-teman bisa langsung clone aja codenya / manual d
 
 .. code-block:: python
 
-    def hello():
-        print("composer require chriskacerguis/codeigniter-restserver")
+    composer require chriskacerguis/codeigniter-restserver
 
 
 *******
