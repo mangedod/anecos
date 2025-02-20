@@ -12,15 +12,23 @@ var getAll = function (selector, scope) {
 // setup typewriter effect in the terminal demo
 if (document.getElementsByClassName('demo').length > 0) {
   var i = 0;
-  var txt = `scribbler
-            [Entry mode; press Ctrl+D to save and quit; press Ctrl+C to quit without saving]
-
-            ###todo for new year dinner party
-
-            - milk
-            - butter
-            - green onion
-            - lots and lots of kiwis 🥝`;
+  var txt = `{
+status: true,
+data: [
+    {
+      id_inv_item: "1",
+      kode_item: "3004",
+      item: "FINE BELLA",
+      act_item: "1"
+    },
+    {
+      id_inv_item: "2",
+      kode_item: "40",
+      item: "SAUDIA",
+      act_item: "1"
+    }
+  ]
+}`;
   var speed = 60;
 
   function typeItOut () {

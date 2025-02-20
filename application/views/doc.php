@@ -20,7 +20,7 @@
     <h1 class="logo">Anecos <span class="logo__thin">Doc</span></h1>
     <ul class="menu">
       <div class="menu__item toggle"><span></span></div>
-      <li class="menu__item"><a href="https://github.com/mangedod/anecos" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
+      <li class="menu__item"><a href="https://github.com/mangedod/anecos" target="_blank" class="link link--dark"><i class="fa fa-github"></i> Github</a></li>
       <li class="menu__item"><a href="<?= base_url(); ?>" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
     </ul>
   </nav>
@@ -30,13 +30,14 @@
         <li class="js-btn selected">Get Started</li>
         <li class="js-btn">Configuration</li>
         <li class="js-btn">Keybindings</li>
-        <li class="js-btn">Issues</li>
+        <li class="js-btn">Register/Login</li>
       </ul>
     </aside>
     <article class="doc__content">
       <section class="js-section">
         <h3 class="section__title">Get Started</h3>
-        <p>ANECOS adalah sebuah Rest API utama dari PT. Kantis Sehati Sukses untuk kebutuhan data baik internal maupun eksternal. ANECOS sendiri merupakan sebuah akronim dari Ansania Eco System.</p>
+        <p>Untuk menjalankan REST API ANECOS (Ansania Eco System) ini kamu diwajibkan mendaftarkan token key dan juga autetikasi, untuk mendapatkan token key kamu lakukan login/register yang terdapat dipaling bawah dihalaman ini.</p>
+        <p>Setelah kamu mempunyai token key lakukan pengecekan pada postman dengan menuliskan <?= base_url(); ?> dengan ditambahkan configurasinya misalnya /stock untuk mendapatkan data stock. Contohnya jadi seperti ini: <em><?= base_url(); ?>stock</em> .</p>
         <h3 class="section__title">Base_url</h3>
         <div class="code__block code__block--notabs">
           <pre class="code code--block">
@@ -48,11 +49,11 @@
       </section>
       <section class="js-section">
         <h3 class="section__title">Configuration</h3>
-        <p>Akses untuk mendapatkan sebuah value dari anecos dibatasi dengan API TOKEN yang harus Anda daftarkan.</p>
+        <p>Tambahkan options dibawah ini setelah <?= base_url(); ?>. Contoh <?= base_url(); ?><strong><em>stock</em></strong></p>
         <table id="customers">
           <tr>
             <th>Options</th>
-            <th>Value</th>
+            <th>Keterangan</th>
             <th>Default</th>
           </tr>
           <tr>
@@ -86,10 +87,7 @@
             <td>true</td>
           </tr>
         </table>
-        <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas
-          concludaturque. Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant lobortis ius
-          te, ad vel affert oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te, ne per tacimates
-          suavitate vituperatoribus.</p>
+        <p>Kemudian masukkan token_key yang sudah kamu dapatkan pada dashboard kamu dan lakukan pengetesan pada postman dengan autentikasi yang telah kamu daftarkan sebagai akun.</p>
         <hr />
       </section>
       <section class="js-section">
@@ -109,20 +107,34 @@
         <hr />
       </section>
       <section class="js-section">
-        <h3 class="section__title">Issues</h3>
-        <p>Lorem ipsum dolor sit amet, scripta tibique indoctum sit ei, mel inani aeterno ad. Facer oratio ex per. At
-          eam movet verear, in sea brute patrioque disputando, usu nonumes torquatos an. Ex his quaerendum intellegebat,
-          ut vel homero accusam. Eum at debet tibique, in vocibus temporibus adversarium sed. Porro verear eu vix, ne
-          usu tation vituperata.</p>
-        <p>Malis percipitur an pro. Pro aperiam persequeris at, at sonet sensibus mei, id mea postulant definiebas
-          concludaturque. Id qui malis abhorreant, mazim melius quo et. At eam altera dolorum, case dicant lobortis ius
-          te, ad vel affert oportere reprehendunt. Quo no verterem deseruisse, mea brute postea te, ne per tacimates
-          suavitate vituperatoribus.</p>
+        <h3 class="section__title">Register/Login</h3>
+        <p>Untuk menemukan data ANECOS kamu wajib mendaftarkan autentikasi dan mendapatkan token key dan autentikasi. Jika sudah memiliki akun silahkan login namun jika belum silahkan daftarkan akun terlebih dahulu.</p>
+        <table id="customers">
+          <tr>
+            <th>
+              <h3 class="section__title">Login</h3>
+              <form action="" method="post">
+                <input style="margin-bottom: 15px;" type="email" placeholder="Email"><br>
+                <input style="margin-bottom: 15px;" type="password" placeholder="Password"><br>
+                <button type="submit">SignIn</button>
+              </form>
+            </th>
+            <th>
+              <h3 class="section__title">Register</h3>
+              <form action="" method="post">
+                <input style="margin-bottom: 10px;" type="email" placeholder="Email"><br>
+                <input style="margin-bottom: 10px;" type="password" placeholder="Password"><br>
+                <input style="margin-bottom: 10px;" type="password" placeholder="Password Confirm"><br>
+                <button type="submit">Register</button>
+              </form>
+            </th>
+          </tr>
+        </table>
       </section>
     </article>
   </div>
 
-  <footer class="footer">Ansania Eco System <?= date('Y'); ?>.</footer>
+  <footer class="footer">@ Anecos 2023 - <?= date('Y'); ?>.</footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
