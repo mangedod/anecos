@@ -26,4 +26,4 @@ composer require chriskacerguis/codeigniter-restserver
 Documentation
 *******
 
-Untuk dokumentasinya sudah saya buatkan di website pribadi saya, `Klik Disini <https://edod.cloud>`_.
+Untuk dokumentasinya sudah saya buatkan di website pribadi saya, `Klik Disini <https://anecos.edod.cloud>`_.
