@@ -9,9 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
-  <link rel="stylesheet" href="scribbler-global.css">
-  <link rel="stylesheet" href="scribbler-landing.css">
-  <link rel="author" href="humans.txt">
+  <link rel="stylesheet" href="<?= base_url('assets/front/'); ?>scribbler-global.css">
+  <link rel="stylesheet" href="<?= base_url('assets/front/'); ?>scribbler-landing.css">
 </head>
 
 <body>
@@ -147,13 +146,12 @@
       </div>
     </div>
   </div>
-  <footer class="footer">Anecos is a free HTML template created exclusively for <a href="https://tympanus.net/codrops/"
-      target="_blank" class="link link--light">Codrops</a>.</footer>
+  <footer class="footer">@ Anecos 2023 - <?= date('Y'); ?>.</footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
   </script>
-  <script src="scribbler.js"></script>
+  <script src="<?= base_url('assets/front/'); ?>scribbler.js"></script>
 </body>
 
 </html>

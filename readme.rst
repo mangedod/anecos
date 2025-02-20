@@ -18,9 +18,11 @@ Installation
 
 Untuk installasi silahkan teman-teman bisa langsung clone aja codenya / manual download, kemudian jangan lupa install juga packagenya di composer teman-teman ya.
 
-```sh
-composer require chriskacerguis/codeigniter-restserver
-```
+.. code-block:: python
+
+    def hello():
+        print("composer require chriskacerguis/codeigniter-restserver")
+
 
 *******
 Documentation
