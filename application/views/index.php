@@ -84,8 +84,8 @@
 			<h3 class="section__title">Changelog</h3>
 			<div class="changelog__item">
 				<div class="changelog__meta">
-					<h4 class="changelog__title">v0.7</h4>
-					<small class="changelog__date">10/12/2017</small>
+					<h4 class="changelog__title">v0.3</h4>
+					<small class="changelog__date">10/04/2024</small>
 				</div>
 				<div class="changelog__detail">
 					<ul>
@@ -98,8 +98,8 @@
 			</div>
 			<div class="changelog__item">
 				<div class="changelog__meta">
-					<h4 class="changelog__title">v0.6</h4>
-					<small class="changelog__date">7/30/2017</small>
+					<h4 class="changelog__title">v0.2</h4>
+					<small class="changelog__date">7/11/2023</small>
 				</div>
 				<div class="changelog__detail">
 					<ul>
@@ -111,8 +111,8 @@
 			</div>
 			<div class="changelog__item">
 				<div class="changelog__meta">
-					<h4 class="changelog__title">v0.5</h4>
-					<small class="changelog__date">5/10/2017</small>
+					<h4 class="changelog__title">v0.1</h4>
+					<small class="changelog__date">5/09/2023</small>
 				</div>
 				<div class="changelog__detail">
 					<ul>
