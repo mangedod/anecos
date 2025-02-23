@@ -29,7 +29,7 @@
 			<ul>
 				<li class="js-btn selected">Get Started</li>
 				<li class="js-btn">Configuration</li>
-				<li class="js-btn">Penjelasan detail</li>
+				<li class="js-btn">Penjelasan</li>
 				<li class="js-btn">Register</li>
 			</ul>
 		</aside>
