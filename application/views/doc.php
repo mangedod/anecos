@@ -40,6 +40,7 @@
 					<?php echo $this->session->flashdata('pesan'); ?>
 					<?php $this->session->unset_userdata('pesan'); ?>
 				<?php } ?>
+				<?= form_error('email', '<small style="color:#ff0000;">', '</small>'); ?>
 				<p>Untuk menjalankan REST API ANECOS (Ansania Eco System) ini kamu diwajibkan mendaftarkan token key dan untuk mendapatkan token key tersebut silahkan daftarkan email kamu yang terdapat dipaling bawah dihalaman ini maka token key akan kami kirimkan ke alamat email yang sudah kamu8 daftarkan.</p>
 				<p>Setelah kamu mempunyai token key silahkan lakukan pengecekan pada postman dengan menuliskan <?= base_url(); ?> dengan ditambahkan configurasinya misalnya /stock untuk mendapatkan data stock. Contohnya jadi seperti ini: <em><?= base_url(); ?>stock</em> .</p>
 				<h3 class="section__title">Base_url</h3>
