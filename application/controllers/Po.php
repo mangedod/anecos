@@ -7,7 +7,9 @@ class Po extends RestController
 	{
 		parent::__construct();
 		$this->load->model('Mrest', 'row');
-		$this->methods['index_get']['limit'] = 2000;
+    $this->methods['index_get']['limit'] = 20;
+    $this->methods['index_delete']['limit'] = 2;
+    $this->methods['index_put']['limit'] = 2;
 	}
 	public function index_get()
 	{
